@@ -1,0 +1,13 @@
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+
+export PAGER=less
+umask 022
+
+# use nicer PS1 for bash and busybox ash
+if [ -n "$BASH_VERSION" -o "$BB_ASH_VERSION" ]; then
+	PS1='\[\e[31m\]\u\[\e[0m\] \[\e[33m\]$(pwd)\[\e[0m\] \[\e[36m\]>\[\e[0m\] '
+else
+	: "${HOSTNAME:=$(hostname)}"
+	PS1='${HOSTNAME%%.*}:$PWD'
+	[ "$(id -u)" -eq 0 ] && PS1="${PS1}# " || PS1="${PS1}\$ "
+fi
