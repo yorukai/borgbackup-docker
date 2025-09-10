@@ -1,6 +1,6 @@
 FROM alpine:3.22
 
-LABEL org.opencontainers.image.source https://github.com/pm-dennis/borgbackup-docker
+LABEL org.opencontainers.image.source=https://github.com/pm-dennis/borgbackup-docker
 
 VOLUME /home/.ssh
 VOLUME /etc/ssh
